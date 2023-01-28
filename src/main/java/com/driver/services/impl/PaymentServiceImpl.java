@@ -24,7 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
         Reservation reservation = reservationRepository2.findById(reservationId).get();
         boolean paymentModeValid = false;
         PaymentMode validPaymentMode = null;
-        if ((reservation.getSpot().getPricePerHour() * reservation.getNoOfHours()) <= amountSent) {
+        if ((reservation.getSpot().getPricePerHour() * reservation.getNumberOfHours()) <= amountSent) {
             for (PaymentMode paymentMode : PaymentMode.values()) {
                 if (paymentMode.name().equals(mode.toUpperCase())) {
                     paymentModeValid = true;

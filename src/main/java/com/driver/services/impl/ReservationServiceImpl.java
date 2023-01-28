@@ -36,7 +36,7 @@ public class ReservationServiceImpl implements ReservationService {
                 else if (spot.getSpotType() == SpotType.FOUR_WHEELER)
                     NoOfWheelsPossible = 4;
 
-                if (numberOfWheels <= NoOfWheelsPossible && !spot.isOccupied()) {
+                if (numberOfWheels <= NoOfWheelsPossible && !spot.getOccupied()) {
                     if ((spot.getPricePerHour() * timeInHours) < minPrice) {
                         minPrice = (spot.getPricePerHour() * timeInHours);
                         requiredSpot = spot;
