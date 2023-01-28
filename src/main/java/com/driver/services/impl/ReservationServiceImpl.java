@@ -56,7 +56,6 @@ public class ReservationServiceImpl implements ReservationService {
             requiredSpot.setOccupied(true);
             spotRepository3.save(requiredSpot);
             Reservation reservation = new Reservation(timeInHours, user, requiredSpot);
-            reservationRepository3.save(reservation);
             List<Reservation> userReservations = user.getReservationList();
             if (Objects.isNull(userReservations)) {
                 userReservations = new ArrayList<>();
