@@ -1,6 +1,7 @@
 package com.driver.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Spot {
@@ -68,8 +69,8 @@ public class Spot {
 
 
 
-    @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL)
-    private List<Reservation> reservationList;
+    @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+    private List<Reservation> reservationList = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn
