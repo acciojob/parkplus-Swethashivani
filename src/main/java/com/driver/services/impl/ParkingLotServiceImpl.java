@@ -29,6 +29,9 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
+        if(!parkingLotRepository1.findById(parkingLotId).isPresent()){
+            return null;
+        }
         Spot spot = new Spot();
         spot.setPricePerHour(pricePerHour);
         if(numberOfWheels>4){
